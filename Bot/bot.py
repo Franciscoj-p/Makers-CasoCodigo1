@@ -5,11 +5,13 @@ from google.genai import types
 import db
 import json
 from datetime import datetime
+import os
+from dotenv import load_dotenv
 
+load_dotenv()
 
-
-client = genai.Client(api_key ="AIzaSyBX0D_zZgogy-Tn_zki5xEvDZdK-ESTMok")
-TELEGRAM_TOKEN = "8229202118:AAFgBDvy03dbBv3ndfX_PEk7Jh3eRUpLXvg"
+client = genai.Client(api_key =os.getenv('GeminiKey'))
+TELEGRAM_TOKEN = os.getenv('TelegramKey')
 
 SYSTEM_PROMPT_QUERY = """
 Eres un asistente de ventas que analiza preguntas de los usuarios.
